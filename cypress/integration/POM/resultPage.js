@@ -3,7 +3,7 @@
 export function checkLocalisation(localisation){    
     return new Promise((resolve,reject)=>{
      cy.get('[class="foncia-card-place"]').each((item, index) =>{
-         console.log(index)
+       
          let anotheArea = false
          cy.
          wrap(item).then((item) => {
@@ -17,7 +17,7 @@ export function checkLocalisation(localisation){
                  }  
              })
              console.log('final value result Area ' + anotheArea)
-              if (anotheArea === true){
+              if (anotheArea === false){
              resolve();
  
              }
@@ -48,7 +48,7 @@ export function checkPriceMax(maxBudgetValue){
             }                  
             
             let budget = firstWords[0].replace(/\D/g, "");
-                  console.log('here we go.....' + budget)
+         
                   if(expect(budget <= maxBudgetValue) == true){
                     maxPassed = false;
                     
@@ -58,8 +58,8 @@ export function checkPriceMax(maxBudgetValue){
 
                 }  
             })
-                console.log('final value result' + maxPassed)
-             if (maxPassed === true){
+            
+             if (maxPassed === false){
             resolve();
 
             }
